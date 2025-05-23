@@ -1,0 +1,368 @@
+.pageContainer {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f0f5ff;
+}
+
+.main {
+  flex: 1;
+  padding: 20px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.pageTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #333;
+  text-align: center;
+  position: relative;
+  
+  &::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, #4DA6FF, #A6D1FF);
+    margin: 10px auto 20px;
+    border-radius: 2px;
+  }
+}
+
+.cityTitle {
+  text-align: center;
+  margin-bottom: 20px;
+  
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #444;
+  }
+}
+
+.searchContainer {
+  margin-bottom: 20px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.errorAlert {
+  background-color: #ffebee;
+  color: #c62828;
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  color: #c62828;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 0 8px;
+}
+
+.contentContainer {
+  background-color: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.daysContainer {
+  display: flex;
+  overflow-x: auto;
+  gap: 15px; /* Возвращаем отступы между карточками */
+  padding: 15px 0;
+  margin-bottom: 25px;
+  width: 100%;
+  height: 230px; /* Увеличиваем высоту контейнера */
+  justify-content: center; /* Центрирование карточек */
+  
+  &::-webkit-scrollbar {
+    height: 6px;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 10px;
+  }
+  
+  &::-webkit-scrollbar-thumb:hover {
+    background: #aaa;
+  }
+}
+
+.dayCard {
+  min-width: 160px; /* Увеличиваем минимальную ширину */
+  width: 160px; /* Фиксированная ширина для всех карточек */
+  height: 200px; /* Увеличиваем высоту карточки */
+  background-color: #f8f9fa;
+  border-radius: 12px; /* Возвращаем скругление углов */
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between; /* Равномерное распределение содержимого */
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  margin: 0 5px; /* Добавляем небольшие отступы по бокам */
+  
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  &.selectedDay {
+    background-color: #e6f2ff;
+    border: 2px solid #4DA6FF;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(77, 166, 255, 0.2);
+  }
+}
+
+.dayHeader {
+  text-align: center;
+  margin-bottom: 5px;
+  width: 100%;
+}
+
+.dayName {
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 14px;
+  color: #555;
+}
+
+.dayDate {
+  font-size: 13px;
+  color: #777;
+}
+
+.dayIcon {
+  margin: 5px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px; /* Фиксированная высота для иконки */
+}
+
+.dayTemp {
+  font-size: 24px; /* Увеличиваем размер шрифта */
+  font-weight: 700;
+  color: #333;
+  margin: 5px 0;
+}
+
+.dayDescription {
+  font-size: 12px;
+  color: #666;
+  text-align: center;
+  text-transform: capitalize;
+  height: 30px; /* Фиксированная высота для описания */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hourlyTitle {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.hourlyContainer {
+  display: flex;
+  overflow-x: auto;
+  gap: 15px;
+  padding-bottom: 10px;
+  
+  &::-webkit-scrollbar {
+    height: 6px;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 10px;
+  }
+  
+  &::-webkit-scrollbar-thumb:hover {
+    background: #aaa;
+  }
+}
+
+.hourlyItem {
+  min-width: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  transition: transform 0.2s ease;
+  
+  &:hover {
+    transform: translateY(-2px);
+    background-color: #f0f7ff;
+  }
+}
+
+.hourlyTime {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 5px;
+}
+
+.hourlyIcon {
+  margin: 5px 0;
+}
+
+.hourlyTemp {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+.weatherInfoBlock {
+  display: flex;
+  flex-direction: column;
+  
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
+}
+
+.weatherInfoLeft {
+  flex: 0 0 30%;
+  padding: 20px;
+  
+  @media (min-width: 768px) {
+    border-right: 1px solid #eee;
+  }
+}
+
+.weatherInfoRight {
+  flex: 0 0 70%;
+  padding: 20px;
+}
+
+.dateInfo {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.weatherMainInfo {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.weatherIcon {
+  margin-right: 15px;
+}
+
+.temperatureBlock {
+  display: flex;
+  flex-direction: column;
+}
+
+.temperature {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #333;
+}
+
+.description {
+  font-size: 1.1rem;
+  color: #666;
+  text-transform: capitalize;
+}
+
+.weatherDetails {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
+}
+
+.detailItem {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.detailLabel {
+  color: #666;
+}
+
+.detailValue {
+  font-weight: 500;
+  color: #333;
+}
+
+.chartTitle {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.chartContainer {
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+  margin-top: 20px; /* Добавляем отступ сверху */
+}
+
+.chartIcon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.emptyState {
+  text-align: center;
+  padding: 40px 0;
+  color: #666;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
